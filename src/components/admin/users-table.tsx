@@ -68,7 +68,7 @@ export default function UsersTable({ currentUserId }: UsersTableProps) {
                     <TableHead>Email</TableHead>
                     <TableHead>Role</TableHead>
                     <TableHead>Verified</TableHead>
-                    <TableHead>Premium</TableHead>
+                    <TableHead>Subscription Plan</TableHead>
                     <TableHead>Status</TableHead>
                     <TableHead>Joined</TableHead>
                     <TableHead>Actions</TableHead>
@@ -81,7 +81,7 @@ export default function UsersTable({ currentUserId }: UsersTableProps) {
                         <TableCell>{user.email}</TableCell>
                         <TableCell>{user.role}</TableCell>
                         <TableCell>{user.emailVerified ? "Yes" : "No"}</TableCell>
-                        <TableCell>{user.premium ? "Yes" : "No"}</TableCell>
+                        <TableCell>{user.subscriptionPlan}</TableCell>
                         <TableCell>
                             {user.banned ? (
                                 <span className="text-red-500">Banned</span>

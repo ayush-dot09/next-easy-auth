@@ -19,11 +19,11 @@ model User {
   email         String    @unique
   emailVerified Boolean   @default(false)
   image         String?
-  premium       Boolean   @default(false)
+  subscriptionPlan String  @default("free") // "free" | "premium" | "gold"
   role          String    @default("user")
   banned        Boolean   @default(false)
   banReason     String?
-  banExpires    Int? /// Unix timestamp for ban expiration
+  banExpires    Int?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   sessions      Session[]
@@ -33,7 +33,7 @@ model User {
 model Session {
   id             String   @id @default(cuid()) @map("_id")
   userId         String
-  token          String
+  token          String   @unique // Add @unique constraint
   expiresAt      DateTime
   ipAddress      String?
   userAgent      String?
